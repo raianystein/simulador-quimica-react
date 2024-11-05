@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-header {
+    display: flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items: center;
+    color: white;
+    background-color: rgb(1, 23, 49);
+    height: 70px;
+    letter-spacing: 2px;
+}
+
+.container-header div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.container-header a {
+    text-decoration: none;
+    padding: 20px;
+    color: rgb(216, 240, 238);
+    font-size: 18px;
+}
+
+.container-header a:hover {
+    text-decoration: underline;
+}
+
+.image-background {
+    width: 250px;
+    height: 70px;
+    background-image: url('../../assets/img/logo-iq.png');
+    background-position: center;
+    background-color: rgba(255, 254, 254, 0.952);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

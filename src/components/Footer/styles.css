@@ -1,0 +1,38 @@
+.container-footer{
+    margin: 0;
+    overflow: hidden;
+    height: 10vh;
+    background-color: rgba(226, 227, 230, 0.952);
+    display: flex;
+    gap: 100px;
+    justify-content:space-around;
+    align-items: center;
+    letter-spacing: 1px;
+    font-weight: 550;
+    color: rgb(2, 49, 102);
+    border-top: 0.3px solid rgb(1, 1, 51);
+}
+
+.contacts {
+    display: flex;
+    gap: 30px;
+}
+
+h3 {font-size: 14px;}
+
+h4 {font-size: 12px;}
+
+a {
+    text-decoration: none;
+    font-size: 12px;
+    color:rgb(2, 49, 102);
+}
+
+.image-background-footer {
+    width: 80px;
+    height: 80px;
+    background-image: url('../../assets/img/logo-ufrj.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

@@ -1,0 +1,25 @@
+.results {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.result-block {
+  flex: 1;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.result-block h3 {
+  margin-bottom: 10px;
+  color: #3B82F6;
+}
+
+.result-block p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}

@@ -1,0 +1,28 @@
+import React from "react";
+import Header from "../../components/Header";
+import "../../styles/menu.css";
+
+export default function MenuPage() {
+  return (
+    <div>
+      <Header/>
+      <div className="content">
+        <div className="simulation-info">
+          <h2>Simulações em físico química</h2>
+          <ul className="informations">
+            <li>Simulação de processos isotérmicos, isovolumétricos e isobáricos para o gás monoatômico perfeito.</li>
+            <li>Cálculo do trabalho (W), variação da energia interna (ΔU) e a quantidade de calor (Q).</li>
+          </ul>
+          <button className="button-menu"><a href="/simulation/perfect-gas-law">Entrar</a></button>
+        </div>
+        <div className="simulation-info">
+          <h2>Exemplo não funcional</h2>
+            <ul className="informations">
+              <li>Roteiros para aulas de laborátorio da disciplina de Química Analítica Experimental I ministradas pelo professor Roberto Amado segunda e quarta às 18h .</li>
+            </ul>
+          <button className="button-menu"><a href="">Entrar</a></button>
+        </div>
+      </div>
+    </div>
+  );
+}

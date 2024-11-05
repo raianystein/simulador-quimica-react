@@ -1,0 +1,82 @@
+.container-infoDetails {
+    background-color: rgb(1, 1, 51);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    height: fit-content;
+}
+
+.authors {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: 30px;
+    
+    div {
+        width: 200px;
+        background-color: aliceblue;
+        border-radius: 5px;
+    }
+    h3{
+        text-align: center;
+        margin: 10px 0 0;
+        font-size: 14px;
+    }
+    h4 {
+        text-align: justify;
+        margin: 0 0 20px;
+        font-size: 13px;
+        padding: 10px;
+        margin: 0;
+    }
+}
+
+.project-details {
+    width: 80%;
+    line-height: 1.7;
+    text-align: justify;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 30px 0;
+    background-color: rgba(235, 238, 255, 0.911);
+    box-shadow: 7px 7px 7px rgb(0, 124, 173);
+
+    p {
+        font-size: 18px;
+        color:rgb(3, 2, 58);
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+}
+
+.Omar-img {
+    height: 250px;
+    background-image: url('../../assets/img/omar.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    border-radius: 2px;
+}
+
+.Raiany-img {
+    height: 250px;
+    background-image: url('../../assets/img/raiany.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    border-radius: 2px;
+}
+
+.Roberto-img {
+    height: 250px;
+    background-image: url('../../assets/img/roberto.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    border-radius: 2px;
+}
