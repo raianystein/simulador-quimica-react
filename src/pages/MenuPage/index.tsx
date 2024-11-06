@@ -13,7 +13,11 @@ export default function MenuPage() {
             <li>Simulação de processos isotérmicos, isovolumétricos e isobáricos para o gás monoatômico perfeito.</li>
             <li>Cálculo do trabalho (W), variação da energia interna (ΔU) e a quantidade de calor (Q).</li>
           </ul>
-          <button className="button-menu"><a href="/simulation/perfect-gas-law">Entrar</a></button>
+          <button className="button-menu">
+            <Link to="/simulation/perfect-gas-law" className="link">
+              Entrar
+            </Link>
+          </button>
         </div>
         <div className="simulation-info">
           <h2>Exemplo não funcional</h2>
