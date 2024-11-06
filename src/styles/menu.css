@@ -65,3 +65,8 @@ ul {
     background-color: #200003;
     color: white;
 }
+
+.link {
+    text-decoration:none;
+    color: #E1E5F2;
+}
