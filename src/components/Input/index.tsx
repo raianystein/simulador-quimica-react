@@ -84,6 +84,7 @@ export default function Input() {
           placeholder="Temperatura inicial (°C)"
           min="0" max="300" step="1"
           value={initialTemperature==""? '' : initialTemperature}
+          onInputCapture={() => console.log("beforeInput")}
           onChange={handleInitialChange}
         />
         <input

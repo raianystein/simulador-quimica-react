@@ -1,5 +1,5 @@
 // QWUCalculator.js
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect} from 'react';
 import './styles.css'; // Arquivo de estilo
 import MyContext from '../../contexts/MyContext';
 var R = 0.08206;
