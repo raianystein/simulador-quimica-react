@@ -47,9 +47,6 @@ export default function Input() {
         constChanged == "finalVolume" ? 
           setFinalPression(((R * (temperaturaFinal+273.15)) / volumeFinal).toPrecision(4)) :
           setFinalVolume(((R*(temperaturaFinal+273.15))/pressaoFinal).toPrecision(4));
-          console.log(finalPression);
-          console.log(finalVolume);
-          console.log(finalPression);
       }
       if (processType=="Processo isovolumétrico" && volumeInicial && pressaoInicial && temperaturaInicial) {
         constChanged == "initialPression" ? 
