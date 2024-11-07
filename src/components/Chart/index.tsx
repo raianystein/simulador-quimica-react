@@ -40,7 +40,7 @@ export default function MyChart() {
       },
       title: {
           text: processType || "",
-          align: 'center'
+          align: 'center' 
       },
       xaxis: {
         title: {
@@ -64,28 +64,28 @@ export default function MyChart() {
     const temperaturaFinal = finalTemperature ? parseFloat(finalTemperature) : null;
 
     const intervaloX: string[] = [];
-    const intervaloY: number[] = []; 
+    const intervaloY: number[] = [];
 
     if (processType === 'Processo isotérmico' && volumeFinal != null && volumeInicial != null && temperaturaInicial != null) {
       const incremento = Math.abs((volumeFinal - volumeInicial) / 10);
-      for (let i = 0; i <= 11; i += 1) {
+      for (let i = 0; i <= 10; i += 1) {
         const volumeCalculado = (volumeInicial > volumeFinal ? volumeFinal : volumeInicial) + i * incremento;
         intervaloX.push(volumeCalculado.toPrecision(4));
         const pressaoCalculada = (R * (temperaturaInicial + 273.15)) / volumeCalculado;
         intervaloY.push(parseFloat(pressaoCalculada.toPrecision(4)));
       }
     } else if (processType === 'Processo isobárico' && temperaturaFinal != null && temperaturaInicial != null && pressaoInicial != null) {
-      const incrementoT = Math.abs((temperaturaFinal - temperaturaInicial) / 10);
-      for (let i = 0; i <= 11; i += 1) {
-        const temperaturaCalculada = (temperaturaInicial > temperaturaFinal ? temperaturaFinal : temperaturaInicial) + i * incrementoT;
+      const incremento = Math.abs((temperaturaFinal - temperaturaInicial) / 10);
+      for (let i = 0; i <= 10; i += 1) {
+        const temperaturaCalculada = (temperaturaInicial > temperaturaFinal ? temperaturaFinal : temperaturaInicial) + i * incremento;
         intervaloX.push(temperaturaCalculada.toPrecision(4));
         const volumeCalculado = (R * (temperaturaCalculada + 273.15)) / pressaoInicial;
         intervaloY.push(parseFloat(volumeCalculado.toPrecision(4)));
       }
     } else if (processType === 'Processo isovolumétrico' && temperaturaFinal != null && temperaturaInicial != null && volumeInicial != null) {
-      const incrementoT = Math.abs((temperaturaFinal - temperaturaInicial) / 10);
-      for (let i = 0; i <= 11; i += 1) {
-        const temperaturaCalculada = (temperaturaInicial > temperaturaFinal ? temperaturaFinal : temperaturaInicial) + i * incrementoT;
+      const incremento = Math.abs((temperaturaFinal - temperaturaInicial) / 10);
+      for (let i = 0; i <= 10; i += 1) {
+        const temperaturaCalculada = (temperaturaInicial > temperaturaFinal ? temperaturaFinal : temperaturaInicial) + i * incremento;
         intervaloX.push(temperaturaCalculada.toPrecision(4));
         const pressaoCalculada = (R * (temperaturaCalculada + 273.15)) / volumeInicial;
         intervaloY.push(parseFloat(pressaoCalculada.toPrecision(4)));
@@ -94,14 +94,22 @@ export default function MyChart() {
 
     setChartData({
       series: [{
-        name: processType || 'Sem dados a avaliar',
+        name: processType,
         data: intervaloY.length > 0 ? intervaloY : Array(6).fill(0),
       }],
       options: {
         ...chartData.options,
         xaxis: {
           ...chartData.options.xaxis,
+          title: {
+            text: processType === 'Processo isotérmico' ? 'Volume (L)' : 'Temperatura (°C)',
+          },
           categories: intervaloX.length > 0 ? intervaloX : Array(6).fill('0'),
+        },
+        yaxis: {
+          title: {
+            text: processType === 'Processo isobárico' ? 'Volume (L)' : 'Pressão (atm)',
+          }
         },
         title: {
           text: processType,

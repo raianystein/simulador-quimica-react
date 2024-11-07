@@ -1,6 +1,7 @@
 {
   "name": "react-essentials-start",
   "version": "0.0.0",
+  "homepage": "https://raianystein.github.io/simulador-quimica-react",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
