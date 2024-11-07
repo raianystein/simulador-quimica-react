@@ -15,88 +15,128 @@ export default function Input() {
     processType} = useContext(MyContext);
 
     const [constChanged, setConstChanged] = useState("");
+    const [tempI, setTempI] = useState(0);
+    const [tempF, setTempF] = useState(0);
 
-    useEffect(() => {
+    useEffect(() => { 
       if (processType=="Processo isobárico") {setFinalPression(initialPression)}
       if (processType=="Processo isotérmico") {setFinalTemperature(initialTemperature)}
       if (processType=="Processo isovolumétrico") {setFinalVolume(initialVolume)}
-      
+
       const volumeInicial = initialVolume ? parseFloat(initialVolume) : null;
       const pressaoInicial = initialPression ? parseFloat(initialPression) : null;
-      const temperaturaInicial = initialTemperature ? parseFloat(initialTemperature) : null;
+      const temperaturaInicial = tempI;
       const volumeFinal = finalVolume ? parseFloat(finalVolume) : null;
       const pressaoFinal = finalPression ? parseFloat(finalPression) : null;
-      const temperaturaFinal = finalTemperature ? parseFloat(finalTemperature) : null;
+      const temperaturaFinal = tempF;
 
-      if (processType=="Processo isobárico" && volumeInicial && pressaoInicial && temperaturaInicial) {
+      if (processType=="Processo isobárico" && volumeInicial && pressaoInicial && temperaturaInicial!=0) {
         constChanged == "initialVolume" ? 
           setInitialTemperature((((pressaoInicial * volumeInicial) / R)-273.15).toPrecision(4)) :
-          setInitialVolume(((R*(temperaturaInicial+273.15))/pressaoInicial).toPrecision(4))
+          setInitialVolume(((R*temperaturaInicial)/pressaoInicial).toPrecision(4))
       }
-      if (processType=="Processo isobárico" && volumeFinal && pressaoFinal && temperaturaFinal) {
+      if (processType=="Processo isobárico" && volumeFinal && pressaoFinal && temperaturaFinal!=0) {
         constChanged == "finalVolume" ? 
-          setFinalTemperature((((pressaoFinal* volumeFinal) / R)-273.15).toPrecision(4)) :
-          setFinalVolume(((R*(temperaturaFinal+273.15))/pressaoFinal).toPrecision(4))
+          setFinalTemperature((((pressaoFinal * volumeFinal) / R)-273.15).toPrecision(4)) :
+          setFinalVolume(((R*temperaturaFinal)/pressaoFinal).toPrecision(4))
       }
-      if (processType=="Processo isotérmico" && volumeInicial && pressaoInicial && temperaturaInicial) {
+      if (processType=="Processo isotérmico" && volumeInicial && pressaoInicial && temperaturaInicial!=0) {
         constChanged == "initialVolume" ? 
-          setInitialPression(((R * (temperaturaInicial+273.15)) / volumeInicial).toPrecision(4)) :
-          setInitialVolume(((R*(temperaturaInicial+273.15))/pressaoInicial).toPrecision(4))
+          setInitialPression(((R * temperaturaInicial) / volumeInicial).toPrecision(4)) :
+          setInitialVolume(((R*temperaturaInicial)/pressaoInicial).toPrecision(4))
       }
-      if (processType=="Processo isotérmico" && volumeFinal && pressaoFinal && temperaturaFinal) {
+      if (processType=="Processo isotérmico" && volumeFinal && pressaoFinal && temperaturaFinal!=0) {
         constChanged == "finalVolume" ? 
-          setFinalPression(((R * (temperaturaFinal+273.15)) / volumeFinal).toPrecision(4)) :
-          setFinalVolume(((R*(temperaturaFinal+273.15))/pressaoFinal).toPrecision(4));
+          setFinalPression(((R * temperaturaFinal) / volumeFinal).toPrecision(4)) :
+          setFinalVolume(((R*temperaturaFinal)/pressaoFinal).toPrecision(4));
       }
-      if (processType=="Processo isovolumétrico" && volumeInicial && pressaoInicial && temperaturaInicial) {
+      if (processType=="Processo isovolumétrico" && volumeInicial && pressaoInicial && temperaturaInicial!=0) {
         constChanged == "initialPression" ? 
         setInitialTemperature((((pressaoInicial * volumeInicial) / R)-273.15).toPrecision(4)) :
-        setInitialPression(((R * (temperaturaInicial+273.15)) / volumeInicial).toPrecision(4))
+        setInitialPression(((R * temperaturaInicial) / volumeInicial).toPrecision(4))
       }
-      if (processType=="Processo isovolumétrico" && volumeFinal && pressaoFinal && temperaturaFinal) {
+      if (processType=="Processo isovolumétrico" && volumeFinal && pressaoFinal && temperaturaFinal!=0) {
         constChanged == "finalPression" ? 
-          setFinalTemperature((((pressaoFinal* volumeFinal) / R)-273.15).toPrecision(4)) :
+          setFinalTemperature((((pressaoFinal * volumeFinal) / R)-273.15).toPrecision(4)) :
           setFinalPression(((R *(temperaturaFinal+273.15))/volumeFinal).toPrecision(4))
       }
 
-      if(volumeInicial!=null && pressaoInicial!=null && temperaturaInicial==null) {
+      if(volumeInicial!=null && pressaoInicial!=null && temperaturaInicial==0) {
         var temperatura = (((pressaoInicial * volumeInicial) / R)-273.15);  
         setInitialTemperature(temperatura.toPrecision(4));
       }
-      if(volumeInicial!=null && pressaoInicial==null && temperaturaInicial!=null) {
-        var pressao= ((R*(temperaturaInicial+273.15))/ volumeInicial);
+      if(volumeInicial!=null && pressaoInicial==null && temperaturaInicial!=0) {
+        var pressao= ((R*(temperaturaInicial))/ volumeInicial);
         setInitialPression(pressao.toPrecision(4));
       }
-      if(volumeInicial==null && pressaoInicial!=null && temperaturaInicial!=null) {
-        var volume= ((R * (temperaturaInicial+273.15)) / pressaoInicial);
+      if(volumeInicial==null && pressaoInicial!=null && temperaturaInicial!=0) {
+        var volume= ((R * (temperaturaInicial)) / pressaoInicial);
         setInitialVolume(volume.toPrecision(4));
       }
 
-      if(volumeFinal!=null && pressaoFinal!=null && temperaturaFinal==null) {
+      if(volumeFinal!=null && pressaoFinal!=null && temperaturaFinal==0) {
         var temperatura = (((pressaoFinal * volumeFinal) / R)-273.15);  
         setFinalTemperature(temperatura.toPrecision(4));
       }
-      if(volumeFinal!=null && pressaoFinal==null && temperaturaFinal!=null) {
-        var pressao= ((R*(temperaturaFinal+273.15))/ volumeFinal);
+      if(volumeFinal!=null && pressaoFinal==null && temperaturaFinal!=0) {
+        var pressao= ((R*(temperaturaFinal))/ volumeFinal);
         setFinalPression(pressao.toPrecision(4));
       }
-      if(volumeFinal==null && pressaoFinal!=null && temperaturaFinal!=null) {
-        var volume= ((R * (temperaturaFinal+273.15)) / pressaoFinal);
+      if(volumeFinal==null && pressaoFinal!=null && temperaturaFinal!=0) {
+        var volume= ((R * (temperaturaFinal)) / pressaoFinal);
         setFinalVolume(volume.toPrecision(4));
       }
       
-    }, [finalPression, finalTemperature, finalVolume, initialPression, initialTemperature, initialVolume])
+    }, [finalPression, finalVolume, initialVolume, initialPression, tempI, tempF])
+
+    useEffect(() => {
+      setTempI(0);
+      setTempF(0)
+    }, [processType])
 
     const handleInitialChange = (e) => {
-      if (e.target.name=="initialPression") {setInitialPression(e.target.value); setConstChanged(e.target.name);}
-      if (e.target.name=="initialTemperature") {setInitialTemperature(e.target.value); setConstChanged(e.target.name);}
-      if (e.target.name=="initialVolume") {setInitialVolume(e.target.value); setConstChanged(e.target.name);}
+      if(processType == "") {
+        return alert("Selecione um tipo de processo.")
+      } else {
+        if (e.target.name=="initialPression") {
+          if (parseFloat(e.target.value) <=0) {
+            return alert("Selecione um valor maior que zero.")
+          } else {setInitialPression(e.target.value); setConstChanged(e.target.name);}
+        }
+        if (e.target.name=="initialTemperature") {
+          setInitialTemperature(e.target.value);
+          e.target.value == "0" ? (setTempI(273.15)) : setTempI(parseFloat(e.target.value)+273.15);
+          setConstChanged(e.target.name);
+          if (processType=="Processo isotérmico") {setFinalTemperature(e.target.value); setTempF(parseFloat(e.target.value)+273.15)}
+        }
+        if (e.target.name=="initialVolume") {
+          if (parseFloat(e.target.value) <=0) {
+            return alert("Selecione um valor maior que zero.")
+          } else {setInitialVolume(e.target.value); setConstChanged(e.target.name);}
+        }
+      }
     };
 
     const handleFinalChange = (e) => {
-      if (e.target.name=="finalPression") {setFinalPression(e.target.value); setConstChanged(e.target.name)}
-      if (e.target.name=="finalTemperature") {setFinalTemperature(e.target.value); setConstChanged(e.target.name)}
-      if (e.target.name=="finalVolume") {setFinalVolume(e.target.value); setConstChanged(e.target.name)}
+      if(processType == "") {
+        return alert("Selecione um tipo de processo.")
+      } else {
+        if (e.target.name=="finalPression") {
+          if (parseFloat(e.target.value) <=0) {
+            return alert("Selecione um valor maior que zero.")
+          } else {setFinalPression(e.target.value); setConstChanged(e.target.name);}
+        }
+        if (e.target.name=="finalTemperature") {
+          setFinalTemperature(e.target.value); 
+          e.target.value == "0" ? (setTempF(273.15)) : setTempF(parseFloat(e.target.value)+273.15);
+          setConstChanged(e.target.name)
+        }
+        if (e.target.name=="finalVolume") {
+          if (parseFloat(e.target.value) <=0) {
+            return alert("Selecione um valor maior que zero.")
+          } else {setFinalVolume(e.target.value); setConstChanged(e.target.name)}
+        }
+      }
     };
 
   return (
@@ -118,7 +158,6 @@ export default function Input() {
           placeholder="Temperatura inicial (°C)"
           min="0" max="300" step="1"
           value={initialTemperature==""? '' : initialTemperature}
-          onInputCapture={() => console.log("beforeInput")}
           onChange={handleInitialChange}
         />
         <input
