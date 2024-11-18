@@ -10,7 +10,7 @@ export default function InfoDetails() {
             <div className="Omar-img"></div>
             <div className="Omar">
                 <h3>Juan Omar Machuca Herrera</h3>
-                <h4>Professor Adjunto da Universidade Federal do Rio de Janeiro (IQ-UFRJ)</h4>
+                <h4>Professor Associado da Universidade Federal do Rio de Janeiro (IQ-UFRJ)</h4>
             </div>
         </div>
         <div>
@@ -24,7 +24,7 @@ export default function InfoDetails() {
             <div className="Roberto-img"></div>
             <div className="Roberto">
                 <h3>Roberto Salgado Amado</h3>
-                <h4>Professor Adjunto da Universidade Federal do Rio de Janeiro (IQ-UFRJ)</h4>
+                <h4>Professor Associado da Universidade Federal do Rio de Janeiro (IQ-UFRJ)</h4>
             </div>
         </div>
       </div>
