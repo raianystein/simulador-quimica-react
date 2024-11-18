@@ -25,7 +25,11 @@ export default function MenuPage() {
             <ul className="informations">
               <li>Roteiros para aulas de laborátorio da disciplina de Química Geral Experimental ministradas pelo professor Roberto Amado segunda e quarta às 18h .</li>
             </ul>
-          <button className="button-menu"><a href="">Entrar</a></button>
+          <button className="button-menu">
+            <Link to="/menu"className="link">
+              Entrar
+            </Link>
+          </button>
         </div>
       </div>
     </div>
