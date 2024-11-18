@@ -21,9 +21,9 @@ export default function MenuPage() {
           </button>
         </div>
         <div className="simulation-info">
-          <h2>Exemplo não funcional</h2>
+          <h2>Laboratório de Química</h2>
             <ul className="informations">
-              <li>Roteiros para aulas de laborátorio da disciplina de Química Analítica Experimental I ministradas pelo professor Roberto Amado segunda e quarta às 18h .</li>
+              <li>Roteiros para aulas de laborátorio da disciplina de Química Geral Experimental ministradas pelo professor Roberto Amado segunda e quarta às 18h .</li>
             </ul>
           <button className="button-menu"><a href="">Entrar</a></button>
         </div>
