@@ -51,32 +51,32 @@
     }
 }
 
-.Omar-img {
-    height: 250px;
+div .Omar-img {
+    height: 280px;
     background-image: url('../../assets/img/omar.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin: auto;
-    border-radius: 2px;
+    border-radius: 5px 5px 0 0;
 }
 
-.Raiany-img {
-    height: 250px;
+div .Raiany-img {
+    height: 280px;
     background-image: url('../../assets/img/raiany.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin: auto;
-    border-radius: 2px;
+    border-radius: 5px 5px 0 0;
 }
 
-.Roberto-img {
-    height: 250px;
+div .Roberto-img {
+    height: 280px;
     background-image: url('../../assets/img/roberto.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin: auto;
-    border-radius: 2px;
+    border-radius: 5px 5px 0 0;
 }
